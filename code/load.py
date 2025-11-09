@@ -7,29 +7,30 @@ def load(num, path):
 
     print("Start Loading Data")
 
+    prev_id = -1
     for data in ds:
         natural_language_statement = data['natural_language_statement']
         formal_statement = data['formal_statement']
         id = data['id']
 
+        if (prev_id == id): continue
+        prev_id = id
         samples.append({
             "id": id,
             "natural_language_statement": natural_language_statement,
             "formal_statement": formal_statement
         })
 
-        if(len(samples) >= num): 
+        if(not num is None and len(samples) >= num): 
             break
 
     print(f"Finish Loading {len(samples)} samples")
     print(f"Save to {path}")
 
     with open(path, "w", encoding="utf-8") as f:
-        json.dump(samples, f, indent=2, ensure_ascii=False)
-
-def main():
-    PATH = "/home/chen_/project/LLMsLean/code/data/data.json"
-    load(100, PATH)
+        json.dump(samples, f, indent=2, ensure_ascii=False)        
 
 if __name__ == "__main__":
-    main()
+    data_path = "/home/chen_/project/LLMsLean/code/data/data.json"
+    # load(num=None, path=data_path)
+    load(num=100, path=data_path)
