@@ -28,9 +28,9 @@ def load(num, path):
     print(f"Save to {path}")
 
     with open(path, "w", encoding="utf-8") as f:
-        json.dump(samples, f, indent=2, ensure_ascii=False)        
+        json.dump(samples, f, indent=2, ensure_ascii=False)
 
 if __name__ == "__main__":
-    data_path = "/home/chen_/project/LLMsLean/code/data/data.json"
+    data_path = "data/data4.json"
     # load(num=None, path=data_path)
     load(num=100, path=data_path)
