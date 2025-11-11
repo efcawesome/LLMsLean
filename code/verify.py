@@ -46,8 +46,8 @@ def verify_single_result(result, project):
     return result
 
 def main():
-    input = "/home/chen_/project/LLMsLean/code/data/result.json"
-    output = "/home/chen_/project/LLMsLean/code/data/final_result.json"
+    input = "data/proofs.json"
+    output = "data/final_result.json"
     
     with open(input, 'r', encoding='utf-8') as f:
         results = json.load(f)
