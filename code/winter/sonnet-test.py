@@ -51,8 +51,6 @@ def bedrock_test(bedrock_client, model_id, temp):
 def main():
     aws_region = "us-west-2"
 
-    os.environ['AWS_BEARER_TOKEN_BEDROCK'] = "ABSKQmVkcm9ja0FQSUtleS1tMDM1LWF0LTA4NTY2Njc5MTIzMTpqQXovbDd5dE1wWEpmMGFPTzF4bEZwQlp6am4vWjcyMlZuQkZxcnRLYk12WDdub2JyOVZVQXVibzFDTT0="
-
     bedrock_client = boto3.client(service_name="bedrock-runtime", region_name=aws_region)
     
     print(bedrock_test(bedrock_client, "us.anthropic.claude-sonnet-4-5-20250929-v1:0", 0.5))
